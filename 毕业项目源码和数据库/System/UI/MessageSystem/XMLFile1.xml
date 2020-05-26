@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMapNode url="" title="系统管理"  description="">
+  <siteMapNode url="" title="用户管理"  description="" >
+    <siteMapNode url="FindUser.aspx" title="查询用户"  description="" />
+    <siteMapNode url="AddUser.aspx" title="新增用户"  description="" />
+  </siteMapNode>
+  <siteMapNode url="" title="新闻类型管理"  description="" >
+    <siteMapNode url="FindNewType.aspx" title="查询新闻类型"  description="" />
+    <siteMapNode url="AddNewType.aspx" title="新增新闻类型"  description="" />
+  </siteMapNode>
+</siteMapNode>
+

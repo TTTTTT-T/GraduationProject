@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="UI.MessageSystem.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        * {
+            margin:0px;
+            padding:0px;
+        }
+
+        body {
+            background-color:lightblue;   /*淡蓝色*/
+
+        }
+        #wrap {
+            width:1000px;
+            margin:50px auto;    /*居中*/
+        }
+
+        #top {
+            padding:50px;
+            border:1px solid #106a82;
+            
+        }
+
+            #top p {
+                text-align:center;
+            }
+
+        #middle {
+            margin-top:10px;
+            margin-bottom:10px;
+            border:1px solid #106a82;
+            overflow:hidden;
+        }
+
+        #left {
+            width:20%;
+            float:left;
+            border:1px solid red;
+            
+        }
+
+        #left #tree{
+            margin:10px auto;
+        }
+
+
+        #right {
+            width:68%;
+            float:left;
+            margin-left:10%;
+             border:1px solid red;
+        }
+         #footer {
+            padding:50px;
+            text-align:center;
+            border:1px solid #106a82;
+            
+        }
+        #pic {
+            width:50px;
+            height:50px;
+            border-radius:50%;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrap">
+         <div id="top">
+                <p>皇家工程班级管理系统V1.0</p>
+             <div><h3 runat="server" id="user"></h3><img src="" runat="server" id="pic"/></div>
+         </div>
+        <div id="middle">
+             <div id="left">
+                    <div id="tree">
+
+                        <asp:TreeView ID="TreeView1" runat="server" DataSourceID="XmlDataSource1" ImageSet="BulletedList4" ShowExpandCollapse="False">
+                            <DataBindings>
+                            <asp:TreeNodeBinding DataMember="siteMapNode" NavigateUrlField="url" TextField="title" />
+                        </DataBindings>
+                            <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                            <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
+                            <ParentNodeStyle Font-Bold="False" />
+                            <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px" VerticalPadding="0px" />
+                        </asp:TreeView>
+                        <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/MessageSystem/XMLFile1.xml"></asp:XmlDataSource>
+
+                     </div>
+                </div>
+                <div id="right">
+                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+              
+         </div>
+        
+         <div id="footer">
+                <p>Copyright ©2019 By JOY</p>
+          </div>
+    </div>
+    </form>
+</body>
+</html>

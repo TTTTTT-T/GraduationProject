@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="UI.BackType.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../css/backMaster.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   
+        <div id="top" class="grid">
+            <div class="logo grid-cell-5 ">皇家工程管理系统</div>
+            <div class="user grid-cell-1">
+                <span>admin</span>
+                <img src="../picture/textRotate.jpg"/>
+            </div>
+        </div>
+        <div id="center" class="grid">
+            <div class="center_left grid-cell-1" >
+                <ul>
+                    <li><a href="#">用户管理</a>
+                        <ul id="user-1">
+                            <li><a href="#">添加用户</a></li>
+                            <li><a href="#">查询用户</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="center_right grid-cell-5" >
+                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    
+                 </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="bottom">
+            版权：皇家工程所拥有
+        </div>
+        
+  
+</body>
+</html>
