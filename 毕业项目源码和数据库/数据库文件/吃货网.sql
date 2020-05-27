@@ -50,7 +50,6 @@ publishID int primary key identity(1,1),
 publishName nvarchar(MAX),--发布找菜谱名称
 publishImg nvarchar(MAX),--图片路径
 userID int foreign key(userID) references userinfo(userID),--取用户姓名
-MenuinformationID int foreign key(MenuinformationID) references Menuinformation(MenuinformationID),   --取电影名称
 commenttime nvarchar(20)default(getdate()),   --评论时间
 )
 create table Comment --评论表
@@ -73,6 +72,6 @@ commenttime nvarchar(20)default(getdate()),   --评论时间
 create table HotList --热评榜
 (
    hlid int primary key identity(1,1),
-   MenuinformationID int foreign key(MenuinformationID) references Menuinformation(MenuinformationID),--电影信息
+   hlid int foreign key(MenuinformationID) references Menuinformation(MenuinformationID),--电影信息
 
 )
