@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "shows";
+    Layout = "~/Views/Shared/_LayoutPerson.cshtml";
+}
+@using Recipe_network.Models
+<link rel="stylesheet" href="~/css/colors/green.css" id="colors">
+<link href="~/css/style.css" rel="stylesheet" />
+
+<div id="wrapper">
+    <section id="titlebar">
+        <!-- Container -->
+        <div class="container">
+
+            <div class="eight columns">
+                <h2 style="margin-left:380px">我的菜谱</h2>
+            </div>
+
+
+
+        </div>
+        <!-- Container / End -->
+    </section>
+
+    <div class="four columns">
+
+
+        @*<div class="widget search-form">
+                <nav class="search">
+                    <form action="#" method="get">
+                        <button style="margin-right:450px"><i class="fa fa-search"></i></button>
+                        <input class="search-field" type="text" placeholder="Search for products" value="" style="width:250px;margin-left:150px" />
+                    </form>
+                </nav>
+                <div class="clearfix"></div>
+            </div>*@
+
+
+
+
+    </div>
+
+
+    <div class="container" style="width:860px">
+
+        <!-- Products -->
+        <div class="twelve columns left-sidebar-class">
+
+            <!-- Ordering -->
+
+            <div class="clearfix"></div>
+
+            <!-- Product #1 -->
+
+
+            @foreach (var item in ViewBag.list as List<Menuinformation>)
+            {
+                string[] imgs = item.MenuinformationImg.Split(',');
+                <div class="four recipe-box columns">
+
+                    <!-- Thumbnail -->
+                    <div class="thumbnail-holder">
+                        <a href="/RecipeShow/Index/@item.MenuinformationID">
+                            <img src="~/images/@imgs[0]" alt="" style="height:130px;width:270px" />
+                            <div class="hover-cover"></div>
+                            <div class="hover-icon">@item.MenuinformationName</div>
+                        </a>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="recipe-box-content" >
+                        <h3><a href="recipe-page-1.html">@item.MenuinformationName</a></h3>
+
+                        <div class="rating five-stars">
+                            <div class="star-rating"></div>
+                            <div class="star-bg"></div>
+                        </div>
+
+                        <div class="recipe-meta"><i class="fa fa-clock-o"></i>@item.Setuptime</div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            }
+
+
+
+
+
+            <div class="clearfix"></div>
+    
+
+
+            <div class="pagination-container masonry" style="margin-top:200px">
+                <nav class="pagination">
+                    <ul style="margin-left:350px">
+                        <li><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="pagination-next-prev">
+                    <ul>
+                        <li><a href="#" class="prev"></a></li>
+                        <li><a href="#" class="next"></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <!-- Container / End -->
+
+
+    <div class="margin-top-5"></div>
+
+</div>
+<script src="~/js/jquery-1.11.0.min.js"></script>
+<script src="~/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="~/js/jquery.superfish.js"></script>
+<script src="~/js/jquery.royalslider.min.js"></script>
+<script src="~/js/responsive-nav.js"></script>
+<script src="~/js/hoverIntent.js"></script>
+<script src="~/js/isotope.pkgd.min.js"></script>
+<script src="~/js/chosen.jquery.min.js"></script>
+<script src="~/js/jquery.tooltips.min.js"></script>
+<script src="~/js/jquery.magnific-popup.min.js"></script>
+<script src="~/js/jquery.pricefilter.js"></script>
+<script src="~/js/custom.js"></script>
+
+
+<!-- Style Switcher
+================================================== -->
+<script src="~/js/switcher.js"></script>

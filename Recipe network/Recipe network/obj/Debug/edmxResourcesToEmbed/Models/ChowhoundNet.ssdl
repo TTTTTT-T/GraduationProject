@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChowhoundNetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="cID" />
+    </Key>
+    <Property Name="cID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CTechnology" Type="varchar" MaxLength="50" />
+    <Property Name="CDishes" Type="varchar" MaxLength="50" />
+    <Property Name="Cdifficulty" Type="varchar" MaxLength="50" />
+    <Property Name="CSetuptime" Type="varchar" MaxLength="50" />
+    <Property Name="CCookingTime" Type="varchar" MaxLength="50" />
+    <Property Name="CPeople" Type="varchar" MaxLength="50" />
+    <Property Name="CMenuinformationImg" Type="nvarchar(max)" />
+    <Property Name="CIngredients" Type="varchar" MaxLength="50" />
+    <Property Name="Csubsidiary" Type="varchar" MaxLength="50" />
+    <Property Name="userID" Type="int" />
+    <Property Name="publishID" Type="int" />
+    <Property Name="commenttime" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CommentMenu">
+    <Key>
+      <PropertyRef Name="CommentMenuID" />
+    </Key>
+    <Property Name="CommentMenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="content" Type="nvarchar(max)" />
+    <Property Name="userID" Type="int" />
+    <Property Name="MenuinformationID" Type="int" />
+    <Property Name="commenttime" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Menuinformation">
+    <Key>
+      <PropertyRef Name="MenuinformationID" />
+    </Key>
+    <Property Name="MenuinformationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuinformationName" Type="varchar" MaxLength="50" />
+    <Property Name="abstract" Type="nvarchar(max)" />
+    <Property Name="TypeName" Type="varchar" MaxLength="50" />
+    <Property Name="Technology" Type="varchar" MaxLength="50" />
+    <Property Name="yield" Type="varchar" MaxLength="50" />
+    <Property Name="Dishes" Type="varchar" MaxLength="50" />
+    <Property Name="difficulty" Type="varchar" MaxLength="50" />
+    <Property Name="Setuptime" Type="varchar" MaxLength="50" />
+    <Property Name="CookingTime" Type="varchar" MaxLength="50" />
+    <Property Name="People" Type="varchar" MaxLength="50" />
+    <Property Name="MenuinformationImg" Type="nvarchar(max)" />
+    <Property Name="Ingredients" Type="varchar" MaxLength="50" />
+    <Property Name="directions" Type="nvarchar(max)" />
+    <Property Name="calorie" Type="varchar" MaxLength="50" />
+    <Property Name="carbohydrate" Type="varchar" MaxLength="50" />
+    <Property Name="eggwhite" Type="varchar" MaxLength="50" />
+    <Property Name="cholesterol" Type="varchar" MaxLength="50" />
+    <Property Name="fat" Type="varchar" MaxLength="50" />
+    <Property Name="commenttime" Type="nvarchar" MaxLength="20" />
+    <Property Name="viewscount" Type="int" />
+  </EntityType>
+  <EntityType Name="publish">
+    <Key>
+      <PropertyRef Name="publishID" />
+    </Key>
+    <Property Name="publishID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="publishName" Type="nvarchar(max)" />
+    <Property Name="publishImg" Type="nvarchar(max)" />
+    <Property Name="userID" Type="int" />
+    <Property Name="commenttime" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+    <Property Name="userpic" Type="nvarchar(max)" />
+    <Property Name="phone" Type="int" />
+    <Property Name="pwd" Type="varchar" MaxLength="20" />
+    <Property Name="sex" Type="char" MaxLength="2" />
+    <Property Name="Birthday" Type="nvarchar" MaxLength="20" />
+    <Property Name="isDelete" Type="int" />
+  </EntityType>
+  <Association Name="FK__Comment__publish__1FCDBCEB">
+    <End Role="publish" Type="Self.publish" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publish">
+        <PropertyRef Name="publishID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="publishID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__userID__1ED998B2">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CommentMe__Menui__173876EA">
+    <End Role="Menuinformation" Type="Self.Menuinformation" Multiplicity="0..1" />
+    <End Role="CommentMenu" Type="Self.CommentMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuinformation">
+        <PropertyRef Name="MenuinformationID" />
+      </Principal>
+      <Dependent Role="CommentMenu">
+        <PropertyRef Name="MenuinformationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CommentMe__userI__164452B1">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="CommentMenu" Type="Self.CommentMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="CommentMenu">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__publish__userID__1B0907CE">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="publish" Type="Self.publish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="publish">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChowhoundNetModelStoreContainer">
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommentMenu" EntityType="Self.CommentMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menuinformation" EntityType="Self.Menuinformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="publish" EntityType="Self.publish" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Comment__publish__1FCDBCEB" Association="Self.FK__Comment__publish__1FCDBCEB">
+      <End Role="publish" EntitySet="publish" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__userID__1ED998B2" Association="Self.FK__Comment__userID__1ED998B2">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CommentMe__Menui__173876EA" Association="Self.FK__CommentMe__Menui__173876EA">
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+      <End Role="CommentMenu" EntitySet="CommentMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CommentMe__userI__164452B1" Association="Self.FK__CommentMe__userI__164452B1">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="CommentMenu" EntitySet="CommentMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__publish__userID__1B0907CE" Association="Self.FK__publish__userID__1B0907CE">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="publish" EntitySet="publish" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

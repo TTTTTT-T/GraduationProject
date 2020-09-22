@@ -1,0 +1,299 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Recipe_network.Models;
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Chow</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <link href="~/css/colors/green.css" rel="stylesheet" />
+
+
+
+</head>
+
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+
+        <!-- Header
+        ================================================== -->
+        <!-- Slider
+        ================================================== -->
+
+        <div id="homeSlider" class="royalSlider rsDefaultInv">
+
+            <!-- Slide #1 -->
+               
+            @foreach (var item in ViewBag.list as List<Menuinformation>)
+            {
+                string[] name = item.MenuinformationImg.Split(',');
+                
+                <div class="rsContent">
+
+                    <a class="rsImg" href="~/images/@name[0]" style="width:1000px;height:300px"></a>
+
+                    <i class="rsTmb">@item.MenuinformationName</i>
+
+
+                    <!-- Slide Caption -->
+                    <div class="SlideTitleContainer rsABlock">
+                        <div class="CaptionAlignment">
+                            <div class="rsSlideTitle tags">
+                                <ul>
+                                    <li>@item.Typetypes.TypetypesName</li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <h2 class="rsSlideTitle title"><a href="/RecipeShow/Index/@item.MenuinformationID">@item.MenuinformationName</a></h2>
+
+                            <div class="rsSlideTitle details">
+                                <ul>
+                                    <li><i class="fa fa-cutlery"></i>@item.yield</li>
+                                    <li><i class="fa fa-clock-o"></i> @item.Setuptime</li>
+                                    <li><i class="fa fa-user"></i> 作者： <a href="#">@item.UserInfo.UName</a></li>
+                                </ul>
+                            </div>
+
+                            <a href="/RecipeShow/Index/@item.MenuinformationID" class="rsSlideTitle button">查看食谱</a>
+                        </div>
+                    </div>
+
+                </div>
+            }
+            <!-- Slide #2 -->
+            
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Content
+        ================================================== -->
+        <div class="container">
+
+            <!-- Masonry -->
+            <div class="twelve columns">
+
+                <!-- Headline -->
+                <h3 class="headline">菜谱显示</h3>
+                <span class="line rb margin-bottom-35"></span>
+                <div class="clearfix"></div>
+
+                <!-- Isotope -->
+                <div class="isotope">
+                    @foreach (var item in ViewBag.list1 as List<Menuinformation>)
+                    {
+                        string[] name = item.MenuinformationImg.Split(',');
+                        <div class="four recipe-box columns">
+
+                            <!-- Thumbnail -->
+                            <div class="thumbnail-holder"> 
+                                <a href="/RecipeShow/Index/@item.MenuinformationID">
+                                    <img src="~/images/@name[0]" alt="" style="height:150px;width:260px"/>
+                                    <div class="hover-cover"></div>
+                                    <div class="hover-icon">查看食谱</div>
+                                </a>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="recipe-box-content">
+                                <h3><a href="/RecipeShow/Index/@item.MenuinformationID">@item.MenuinformationName</a></h3>
+
+                                <div class="rating five-stars">
+                                    <div class="star-rating"></div>
+                                    <div class="star-bg"></div>
+                                </div>
+
+                                <div class="recipe-meta"><i class="fa fa-clock-o"></i> @item.Setuptime</div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    }
+                    <!-- Recipe #1 -->
+                    <!-- Recipe #2 -->
+                    <!-- Recipe #9 -->
+
+
+                </div>
+                <div class="clearfix"></div>
+
+                <!-- Pagination -->
+                <div class="pagination-container masonry">
+                    <nav class="pagination">
+                        <ul style="margin-left:350px">
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="pagination-next-prev">
+                        <ul>
+                            <li><a href="#" class="prev"></a></li>
+                            <li><a href="#" class="next"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+
+
+            <!-- Sidebar
+            ================================================== -->
+            <div class="four columns">
+
+                <!-- Search Form -->
+                <div class="widget search-form">
+                    <nav class="search">
+                        <form action="/RecipeHome/Index" method="post">
+                            <button onclick="aa()"><i class="fa fa-search"></i></button>
+                            <input class="search-field" type="text" placeholder="查询食谱" value="" id="search" name="search" />
+                        </form>
+                    </nav>
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <!-- Author Box -->
+                <div class="widget">
+                    <div class="author-box" style="display:none;">
+
+                       
+                    </div>
+                </div>
+
+
+                <!-- Popular Recipes -->
+                <div class="widget">
+                    <h4 class="headline">您可能喜欢</h4>
+                    <span class="line margin-bottom-30"></span>
+                    <div class="clearfix"></div>
+
+                    <!-- Recipe #1 -->
+                    @foreach (var item in ViewBag.lists as List<Menuinformation>)
+                    {
+
+
+                        string[] imgs = item.MenuinformationImg.Split(',');
+
+                        <a href="/RecipeShow/Index/@item.MenuinformationID" class="featured-recipe">
+                            <img src="~/images/@imgs[0]" alt="" style="width:280px;height:100px">
+
+                            <div class="featured-recipe-content">
+                                <h4>@item.MenuinformationName</h4>
+
+                                <div class="rating five-stars">
+                                    <div class="star-rating"></div>
+                                    <div class="star-bg"></div>
+                                </div>
+                            </div>
+                            <div class="post-icon"></div>
+                        </a>
+                    }
+                    <!-- Recipe #2 -->
+                    <!-- Recipe #3 -->
+
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <!-- Share -->
+                <div class="widget">
+                    <h4 class="headline"></h4>
+                    <span class="line margin-bottom-30"></span>
+                    <div class="clearfix"></div>
+
+                  
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!-- Container / End -->
+
+        <div class="margin-top-5"></div>
+
+
+    
+    <!-- Wrapper / End -->
+    <!-- Footer
+    ================================================== -->
+    <div id="footer">
+
+        <!-- Container -->
+        <div class="container">
+
+         
+
+
+
+         
+
+        </div>
+        <!-- Container / End -->
+
+    </div>
+    <!-- Footer / End -->
+    <!-- Footer Bottom / Start -->
+
+    <!-- Footer Bottom / End -->
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
+
+
+    <!-- Java Script
+    ================================================== -->
+
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <script src="~/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/js/jquery.superfish.js"></script>
+    <script src="~/js/jquery.royalslider.min.js"></script>
+    <script src="~/js/responsive-nav.js"></script>
+    <script src="~/js/hoverIntent.js"></script>
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/chosen.jquery.min.js"></script>
+    <script src="~/js/jquery.tooltips.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/jquery.pricefilter.js"></script>
+    <script src="~/js/custom.js"></script>
+
+
+    <!-- Style Switcher
+    ================================================== -->
+    <script src="scripts/switcher.js"></script>
+
+  
+
+
+</body>
+</html>
+

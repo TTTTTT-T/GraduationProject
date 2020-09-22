@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChowhoundNetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BuImage">
+    <Key>
+      <PropertyRef Name="BuImageID" />
+    </Key>
+    <Property Name="BuImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proceduress" Type="int" />
+    <Property Name="BuImageimge" Type="nvarchar(max)" />
+    <Property Name="discriptss" Type="nvarchar(max)" />
+    <Property Name="MenuinformationID" Type="int" />
+    <Property Name="isDelete" Type="int" />
+  </EntityType>
+  <EntityType Name="CommentMenu">
+    <Key>
+      <PropertyRef Name="CommentMenuID" />
+    </Key>
+    <Property Name="CommentMenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contentss" Type="nvarchar(max)" />
+    <Property Name="userID" Type="int" />
+    <Property Name="MenuinformationID" Type="int" />
+    <Property Name="commenttime" Type="nvarchar" MaxLength="20" />
+    <Property Name="isDelete" Type="int" />
+  </EntityType>
+  <EntityType Name="Menuinformation">
+    <Key>
+      <PropertyRef Name="MenuinformationID" />
+    </Key>
+    <Property Name="MenuinformationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuinformationName" Type="varchar" MaxLength="50" />
+    <Property Name="abstractss" Type="nvarchar(max)" />
+    <Property Name="TypeName" Type="varchar" MaxLength="50" />
+    <Property Name="Technology" Type="varchar" MaxLength="50" />
+    <Property Name="yield" Type="varchar" MaxLength="50" />
+    <Property Name="MenuinformationImg" Type="nvarchar(max)" />
+    <Property Name="Dishes" Type="varchar" MaxLength="50" />
+    <Property Name="userID" Type="int" />
+    <Property Name="TypetID" Type="int" />
+    <Property Name="difficulty" Type="varchar" MaxLength="50" />
+    <Property Name="Setuptime" Type="varchar" MaxLength="50" />
+    <Property Name="CookingTime" Type="varchar" MaxLength="50" />
+    <Property Name="People" Type="varchar" MaxLength="50" />
+    <Property Name="Ingredients" Type="varchar" MaxLength="50" />
+    <Property Name="directions" Type="nvarchar(max)" />
+    <Property Name="calorie" Type="varchar" MaxLength="50" />
+    <Property Name="carbohydrate" Type="varchar" MaxLength="50" />
+    <Property Name="eggwhite" Type="varchar" MaxLength="50" />
+    <Property Name="cholesterol" Type="varchar" MaxLength="50" />
+    <Property Name="fat" Type="varchar" MaxLength="50" />
+    <Property Name="commenttime" Type="nvarchar" MaxLength="20" />
+    <Property Name="viewscount" Type="int" />
+    <Property Name="isDelete" Type="int" />
+  </EntityType>
+  <EntityType Name="Typetypes">
+    <Key>
+      <PropertyRef Name="TypetypesID" />
+    </Key>
+    <Property Name="TypetypesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypetypesName" Type="nvarchar" MaxLength="50" />
+    <Property Name="isDelete" Type="int" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account" Type="varchar" MaxLength="20" />
+    <Property Name="UName" Type="nvarchar" MaxLength="20" />
+    <Property Name="userpic" Type="nvarchar(max)" />
+    <Property Name="phone" Type="int" />
+    <Property Name="pwd" Type="varchar" MaxLength="20" />
+    <Property Name="sex" Type="char" MaxLength="2" />
+    <Property Name="Birthday" Type="nvarchar" MaxLength="20" />
+    <Property Name="isDelete" Type="int" />
+    <Property Name="discriptss" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK__BuImage__Menuinf__1BFD2C07">
+    <End Role="Menuinformation" Type="Self.Menuinformation" Multiplicity="0..1" />
+    <End Role="BuImage" Type="Self.BuImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuinformation">
+        <PropertyRef Name="MenuinformationID" />
+      </Principal>
+      <Dependent Role="BuImage">
+        <PropertyRef Name="MenuinformationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CommentMe__Menui__20C1E124">
+    <End Role="Menuinformation" Type="Self.Menuinformation" Multiplicity="0..1" />
+    <End Role="CommentMenu" Type="Self.CommentMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuinformation">
+        <PropertyRef Name="MenuinformationID" />
+      </Principal>
+      <Dependent Role="CommentMenu">
+        <PropertyRef Name="MenuinformationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CommentMe__userI__1FCDBCEB">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="CommentMenu" Type="Self.CommentMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="CommentMenu">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Menuinfor__Typet__173876EA">
+    <End Role="Typetypes" Type="Self.Typetypes" Multiplicity="0..1" />
+    <End Role="Menuinformation" Type="Self.Menuinformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typetypes">
+        <PropertyRef Name="TypetypesID" />
+      </Principal>
+      <Dependent Role="Menuinformation">
+        <PropertyRef Name="TypetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Menuinfor__userI__164452B1">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="Menuinformation" Type="Self.Menuinformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Menuinformation">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChowhoundNetModelStoreContainer">
+    <EntitySet Name="BuImage" EntityType="Self.BuImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommentMenu" EntityType="Self.CommentMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menuinformation" EntityType="Self.Menuinformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typetypes" EntityType="Self.Typetypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BuImage__Menuinf__1BFD2C07" Association="Self.FK__BuImage__Menuinf__1BFD2C07">
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+      <End Role="BuImage" EntitySet="BuImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CommentMe__Menui__20C1E124" Association="Self.FK__CommentMe__Menui__20C1E124">
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+      <End Role="CommentMenu" EntitySet="CommentMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CommentMe__userI__1FCDBCEB" Association="Self.FK__CommentMe__userI__1FCDBCEB">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="CommentMenu" EntitySet="CommentMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Menuinfor__Typet__173876EA" Association="Self.FK__Menuinfor__Typet__173876EA">
+      <End Role="Typetypes" EntitySet="Typetypes" />
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Menuinfor__userI__164452B1" Association="Self.FK__Menuinfor__userI__164452B1">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

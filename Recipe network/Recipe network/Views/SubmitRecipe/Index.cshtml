@@ -1,0 +1,407 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Recipe_network.Models
+    <!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Chow</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/colors/green.css" id="colors">
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="overflow-reset">
+
+    <!-- Wrapper -->
+    <!-- Header
+    ================================================== -->
+
+    <section id="titlebar">
+        <!-- Container -->
+        <div class="container">
+
+            <div class="eight columns">
+                <h2 style="margin-left:380px">提交食谱</h2>
+            </div>
+
+
+
+        </div>
+        <!-- Container / End -->
+    </section>
+
+
+
+    <!-- Content
+    ================================================== -->
+    <div class="container">
+        <div class="sixteen columns">
+            <div class="submit-recipe-form">
+                <form method="post" enctype="multipart/form-data" id="uploadForm" action="/SubmitRecipe/Add" style="width:800px;height:1000px;margin-left:60px">
+
+                    <!-- Recipe Title -->
+                    <h4>食谱标题</h4>
+                    <nav class="title">
+                        <input class="search-field" type="text" placeholder="" value="" name="MenuinformationName" />
+                    </nav>
+                    <div class="clearfix"></div>
+
+
+                    <div class="margin-top-25"></div>
+
+
+                    <!-- Choose Category -->
+                    <div class="select">
+                        <h4>选择类别</h4>
+                        <select data-placeholder="Choose Category" class="chosen-select-no-single" name="TypetID" style="width:100px">
+                            @foreach (var item in ViewBag.types as List<Typetypes>)
+                            {
+                                <option value="@item.TypetypesID">@item.TypetypesName</option>
+
+                            }
+
+
+                        </select>
+                    </div>
+
+
+                    <div class="margin-top-25"></div>
+
+
+                    <!-- Short Summary -->
+                    <h4>简短摘要</h4>
+                    <textarea class="WYSIWYG" name="abstractss" cols="40" rows="3" id="summary" spellcheck="true"></textarea>
+
+
+                    <div class="margin-top-25"></div>
+
+
+                    <!-- Upload Photos -->
+                    <h4>上传菜谱成品图</h4>
+                    <div>
+                        <input type="file" id="file" name="MenuinformationImg" multiple="multiple" accept=".jpg,.png,.jpeg,.ai,.psd,.tif,.txt,.svg,.rar,.zip,.docx,.pptx,.xlsx" />
+                        <button id="upload">上传</button>
+                        <span id="output" style="font-size: 12px">等待</span>
+                    </div>
+                    @*<input type="file" multiple="multiple" id="PersonFile" name="MenuinformationImg" class="btn btn-primary" />*@
+
+                    @*<input type="file" name="MenuinformationImg"  class="btn btn-primary" multiple="multiple"/>*@
+
+
+
+
+                    <div class="clearfxix"></div>
+                    <div class="margin-top-15"></div>
+
+
+                    <!-- Ingredients -->
+                    <fieldset class="addrecipe-cont" name="ingredients">
+                        <h4>配料</h4>
+                        <a href="#" class="button color add_ingredient2">添加配料</a>
+                        <table id="ingredients-sort2">
+
+                            <tr class="ingredients-cont ing2">
+                                <td class="icon"><i class="fa fa-arrows"></i></td>
+
+                                <td><input name="Ingredients" tabindex="6" type="text" placeholder="配料" /></td>
+                                <td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a> </td>
+                            </tr>
+
+                        </table>
+                        <h4>流程</h4>
+                        <a href="#" class="button color add_ingredient">添加流程</a>
+                        <table id="ingredients-sort1">
+                            <tr class="ingredients-cont ing1">
+                                <td class="icon"><i class="fa fa-arrows"></i></td>
+                                <td><input name="directions" tabindex="5" type="text" placeholder="流程" /> </td>
+                                <td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a> </td>
+                                <td><input type="file" name="BuImageimge" /></td>
+                            </tr>
+
+
+                        </table>
+
+
+
+                    </fieldset>
+                    <div id="isds" class="row">
+
+                    </div>
+
+
+
+                    <div class="margin-top-25"></div>
+
+
+                    <!-- Directions -->
+
+
+
+
+                    <div class="margin-top-25 clearfix"></div>
+
+
+                    <!-- Additional Informations -->
+                    <h4>附加信息</h4>
+
+                    <fieldset class="additional-info">
+                        <table>
+
+                            <tr class="ingredients-cont">
+                                <td class="label"><label for="4">产量</label></td>
+                                <td><input id="4" type="text" name="yield" /></td>
+                            </tr>
+
+                            <tr class="ingredients-cont">
+                                <td class="label"><label for="1">准备时间</label></td>
+                                <td><input id="1" type="text" name="Setuptime" /></td>
+                            </tr>
+
+                            <tr class="ingredients-cont">
+                                <td class="label"><label for="2">烹饪时间</label></td>
+                                <td><input id="2" type="text" name="CookingTime" /></td>
+                            </tr>
+
+                            <tr class="ingredients-cont">
+                                <td class="label"><label for="4">水平</label></td>
+                                <td>
+                                    <select data-placeholder="Choose Level" class="chosen-select-no-single" name="difficulty">
+
+                                        <option value="简单">简单</option>
+                                        <option value="中">中</option>
+                                        <option value="难">难</option>
+                                        <option value="极难">极难</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+
+
+                        </table>
+                    </fieldset>
+
+
+                    <div class="margin-top-25"></div>
+
+
+                    <!-- Nutrition Facts -->
+                    <h4>营养成分</h4>
+
+                    <fieldset class="additional-info">
+                        <table>
+
+                            <tr class="ingredients-cont">
+                                <td class="label"><label for="5">卡路里</label></td>
+                                <td><input id="5" type="text" name="calorie" /></td>
+                            </tr>
+
+                            <tr class="ingredients-cont">
+                                <td class="label"><label for="6">碳水化合物</label></td>
+                                <td><input id="6" type="text" name="carbohydrate" /></td>
+                            </tr>
+
+                            <tr class="ingredients-cont">
+                                <td class="label"><label for="7">脂肪</label></td>
+                                <td><input id="7" type="text" name="fat" /></td>
+                            </tr>
+
+                            <tr class="ingredients-cont">
+                                <td class="label"><label for="8">蛋白</label></td>
+                                <td><input id="8" type="text" name="eggwhite" /></td>
+                            </tr>
+
+                            <tr class="ingredients-cont">
+                                <td class="label"><label for="9">胆固醇</label></td>
+                                <td><input id="9" type="text" name="cholesterol" /></td>
+                            </tr>
+
+                        </table>
+                    </fieldset>
+
+                    <div class="margin-top-30"></div>
+                    <input type="submit" value="提交食谱" class="button color big" onclick="aa()" />
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Container / End -->
+
+
+    <div class="margin-top-50"></div>
+
+
+    <!-- Wrapper / End -->
+    <!-- Footer
+    ================================================== -->
+    <!-- Footer / End -->
+    <!-- Java Script
+    ================================================== -->
+  
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <script src="~/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/js/jquery.superfish.js"></script>
+    <script type="text/javascript" src="~/js/jquery.sceditor.js"></script>
+    <script src="~/js/jquery.royalslider.min.js"></script>
+    <script src="~/js/responsive-nav.js"></script>
+    <script src="~/js/hoverIntent.js"></script>
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/chosen.jquery.min.js"></script>
+    <script src="~/js/jquery.tooltips.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/jquery.pricefilter.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/custom.js"></script>
+
+
+
+
+    <!-- WYSIWYG Editor -->
+    <script type="text/javascript" src="~/js/jquery.sceditor.bbcode.min.js"></script>
+
+
+
+
+    <!-- Style Switcher
+    ================================================== -->
+    <script src="~/js/switcher.js"></script>
+
+
+
+      <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/js/upload.js"></script>
+    @section scripts{
+        <script type="text/javascript">
+            function aa() {
+                var name = "";
+                var name1 = "";
+
+                var r1 = document.getElementsByName("directions");
+                var r = document.getElementsByName("Ingredients");
+                for (var i = 0; i < r1.length; i++) {
+
+                    name1 += r1[i].value + "~";
+                }
+                for (var i = 0; i < r.length; i++) {
+                    name += r[i].value + "~";
+
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/SubmitRecipe/Add1",
+                    data: { RName: name, RName2: name1 }
+
+                });
+            }
+
+
+
+            var page = {
+                init: function () {
+                    $("#upload").click($.proxy(this.upload, this));
+                },
+
+                upload: function () {
+                    var shardSize = 2 * 1024 * 1024,     //以2MB为一个分片
+                        shardCount = 0,
+                        succeed = 0;
+                    for (var i = 0; i < $("#file")[0].files.length; i++) {
+                        shardCount += Math.ceil($("#file")[0].files[i].size / shardSize);   //总片数
+                    }
+                    for (var j = 0; j < $("#file")[0].files.length; j++) {
+
+                        var file = $("#file")[0].files[j],  //文件对象
+                            name = file.name,        //文件名
+                            size = file.size;        //总大小
+
+                        var shardSize = 2 * 1024 * 1024,     //以2MB为一个分片
+                            shardCount = Math.ceil(size / shardSize);   //总片数
+                        var Count = Math.ceil(file.size / shardSize);
+                        for (var i = 0; i < Count; i++) {
+                            //计算每一片的起始与结束位置
+                            var start = i * shardSize,
+                                end = Math.min(size, start + shardSize);
+
+
+                            //构造一个表单，FormData是HTML5新增的
+                            var form = new FormData();
+                            form.append("data", file.slice(start, end));  //slice方法用于切出文件的一部分
+                            form.append("name", name);
+                            form.append("total", Count);   //总片数
+                            form.append("index", i + 1);        //当前是第几片
+
+                            $("#output").text(0 + " / " + shardCount);
+
+                            //Ajax提交
+                            $.ajax({
+                                url: "/SubmitRecipe/Upload",
+                                type: "post",
+                                data: form,
+                                async: false,         //异步
+                                processData: false,  //很重要，告诉jquery不要对form进行处理
+                                contentType: false,  //很重要，指定为false才能形成正确的Content-Type
+                                success: function (s) {
+
+
+                                    if (s.Error == 1) {
+
+
+                                    }
+                                    succeed++;
+                                    $("#output").text(succeed + " / " + shardCount);
+                                    if (succeed == shardCount) {
+                                        $("#output").text("完成");
+                                    }
+                                },
+                                error: function (e) {
+
+                                    if (e.Error == 0) {
+
+                                    }
+                                }
+
+
+                            });
+
+                        }
+
+                    }
+                    return false;
+                }
+            };
+
+            $(function () {
+                page.init();
+            });
+           
+        </script>
+    }
+
+
+</body>
+</html>
+
+
+
+

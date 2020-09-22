@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Recipe_network.BundleConfig">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.FilterConfig">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.RouteConfig" Collapsed="true">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.MvcApplication">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Controllers.HomeController">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Controllers.LoginController" Collapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAQAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\LoginController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Controllers.RecipeHomeController">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\RecipeHomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Controllers.RecipeShowController" Collapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAIA=</HashCode>
+      <FileName>Controllers\RecipeShowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Controllers.SubmitRecipeController">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAAAAABAgAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\SubmitRecipeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Controllers.UserInfoController">
+    <Position X="13.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAgAAAAAAAAAAEAAIAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\UserInfoController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Models.ChowhoundNetEntities11">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAACAAAAAAAAAACEAAAAAAAEAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Model1.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Models.BuImage">
+    <Position X="11" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAACAAAAAIAAAAAAAAABgAAAAACACAA=</HashCode>
+      <FileName>Models\BuImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Models.CommentMenu">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEAQAAAAAAAAACCAAAAAAAAAAAARABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CommentMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Models.Menuinformation">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACECAABAIACBAIAGAQEASAAAAAMgRAFAAAACACAAAE=</HashCode>
+      <FileName>Models\Menuinformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Models.Typetypes">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\Typetypes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe_network.Models.UserInfo">
+    <Position X="14.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAIAAAAACCAQAAAAAAAAIgAAhCAAAAAAACEA=</HashCode>
+      <FileName>Models\UserInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

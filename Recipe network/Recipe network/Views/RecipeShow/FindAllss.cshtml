@@ -1,0 +1,231 @@
+﻿
+@{
+    ViewBag.Title = "FindAllss";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Recipe_network.Models
+
+<link rel="stylesheet" href="~/css/style.css">
+<link rel="stylesheet" href="~/css/colors/green.css" id="colors">
+
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+
+    <!-- Header
+    ================================================== -->
+    <!-- Titlebar
+    ================================================== -->
+    <section id="titlebar">
+        <!-- Container -->
+        <div class="container">
+
+            <div class="eight columns">
+                <h2>搜索页</h2>
+            </div>
+
+            <div class="eight columns">
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li>你在这儿:</li>
+                        <li><a href="/RecipeHome/Index" />首页</a></li>
+                        <li>搜索</li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <!-- Container / End -->
+    </section>
+
+
+
+    <!-- Content
+    ================================================== -->
+    <div class="container">
+
+        <!-- Products -->
+        <div class="twelve columns left-sidebar-class">
+
+            <!-- Ordering -->
+            <div class="ordering">
+                <select class="chosen-select-no-single" onchange="selectone()" name="types">
+                    @foreach (var item in ViewBag.list5 as List<Typetypes>)
+                    {
+                        <option value="@item.TypetypesID">@item.TypetypesName</option>
+
+                    }
+
+                </select>
+            </div>
+            <div class="clearfix"></div>
+            @foreach (var item in ViewBag.searchName as List<Menuinformation>)
+            {
+                string[] name = item.MenuinformationImg.Split(',');
+                <div class="four recipe-box columns">
+
+                    <!-- Thumbnail -->
+                    <div class="thumbnail-holder">
+                        <a href="/RecipeShow/Index/@item.MenuinformationID">
+                            <img src="~/images/@name[0]" alt="" />
+                            <div class="hover-cover"></div>
+                            <div class="hover-icon">查看食谱</div>
+                        </a>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="recipe-box-content">
+                        <h3><a href="recipe-page-1.html">@item.MenuinformationName</a></h3>
+
+                        <div class="rating five-stars">
+                            <div class="star-rating"></div>
+                            <div class="star-bg"></div>
+                        </div>
+
+                        <div class="recipe-meta"><i class="fa fa-clock-o"></i> @item.Setuptime</div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            }
+
+
+
+
+
+
+
+            <div class="clearfix"></div>
+            <div class="margin-top-40"></div>
+
+            <!-- Pagination -->
+            <div class="pagination-container masonry">
+                <nav class="pagination">
+                    <ul style="margin-left:250px">
+                        <li><a href="#" class="current-page">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="pagination-next-prev">
+                    <ul>
+                        <li><a href="#" class="prev"></a></li>
+                        <li><a href="#" class="next"></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+
+        <!-- Sidebar
+        ================================================== -->
+        <div class="four columns">
+
+            <!-- Search Form -->
+            <div class="widget search-form">
+                <nav class="search">
+                    <form action="/RecipeShow/FindAllss" method="get">
+                        <button><i class="fa fa-search"></i></button>
+                        <input class="search-field" type="text" placeholder="查找食谱" value="" name="search" />
+                    </form>
+                </nav>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <!-- Cart -->
+            <div class="widget">
+                <h4 class="headline"></h4>
+
+                <div class="clearfix"></div>
+
+
+            </div>
+
+
+            <!-- Widget -->
+
+
+        </div>
+
+    </div>
+    <!-- Container / End -->
+
+
+    <div class="margin-top-5"></div>
+
+</div>
+<!-- Wrapper / End -->
+<!-- Footer
+================================================== -->
+<div id="footer">
+
+    <!-- Container -->
+    <div class="container">
+
+
+
+    </div>
+    <!-- Container / End -->
+
+</div>
+<!-- Footer / End -->
+<!-- Footer Bottom / Start -->
+<div id="footer-bottom">
+
+    <!-- Container -->
+    <div class="container">
+
+        <div class="eight columns">© Copyright 2014 by <a href="#">Chow</a>. All Rights Reserved.</div>
+
+    </div>
+    <!-- Container / End -->
+
+</div>
+<!-- Footer Bottom / End -->
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+
+
+<!-- Java Script
+================================================== -->
+<script src="~/js/jquery-1.11.0.min.js"></script>
+<script src="~/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="~/js/jquery.superfish.js"></script>
+<script src="~/js/jquery.royalslider.min.js"></script>
+<script src="~/js/responsive-nav.js"></script>
+<script src="~/js/hoverIntent.js"></script>
+<script src="~/js/isotope.pkgd.min.js"></script>
+<script src="~/js/chosen.jquery.min.js"></script>
+<script src="~/js/jquery.tooltips.min.js"></script>
+<script src="~/js/jquery.magnific-popup.min.js"></script>
+<script src="~/js/jquery.pricefilter.js"></script>
+<script src="~/js/custom.js"></script>
+
+
+<!-- Style Switcher
+================================================== -->
+<script src="~/js/switcher.js"></script>
+@section scripts{
+    <script>
+        function selectone() {
+            var name = "";
+
+
+            var r1 = document.getElementsByName("types").values;
+
+            $.ajax({
+                type: "post",
+                url: "/RecipeShow/FindAllss",
+                data: { "name": r1 }
+
+            });
+        }
+    </script>
+    }
+

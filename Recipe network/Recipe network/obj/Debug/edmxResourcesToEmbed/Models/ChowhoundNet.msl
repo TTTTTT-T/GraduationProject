@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ChowhoundNetModelStoreContainer" CdmEntityContainer="ChowhoundNetEntities1">
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="ChowhoundNetModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="cID" ColumnName="cID" />
+          <ScalarProperty Name="CTechnology" ColumnName="CTechnology" />
+          <ScalarProperty Name="CDishes" ColumnName="CDishes" />
+          <ScalarProperty Name="Cdifficulty" ColumnName="Cdifficulty" />
+          <ScalarProperty Name="CSetuptime" ColumnName="CSetuptime" />
+          <ScalarProperty Name="CCookingTime" ColumnName="CCookingTime" />
+          <ScalarProperty Name="CPeople" ColumnName="CPeople" />
+          <ScalarProperty Name="CMenuinformationImg" ColumnName="CMenuinformationImg" />
+          <ScalarProperty Name="CIngredients" ColumnName="CIngredients" />
+          <ScalarProperty Name="Csubsidiary" ColumnName="Csubsidiary" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="publishID" ColumnName="publishID" />
+          <ScalarProperty Name="commenttime" ColumnName="commenttime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentMenu">
+      <EntityTypeMapping TypeName="ChowhoundNetModel.CommentMenu">
+        <MappingFragment StoreEntitySet="CommentMenu">
+          <ScalarProperty Name="CommentMenuID" ColumnName="CommentMenuID" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="MenuinformationID" ColumnName="MenuinformationID" />
+          <ScalarProperty Name="commenttime" ColumnName="commenttime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menuinformation">
+      <EntityTypeMapping TypeName="ChowhoundNetModel.Menuinformation">
+        <MappingFragment StoreEntitySet="Menuinformation">
+          <ScalarProperty Name="MenuinformationID" ColumnName="MenuinformationID" />
+          <ScalarProperty Name="MenuinformationName" ColumnName="MenuinformationName" />
+          <ScalarProperty Name="abstract" ColumnName="abstract" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Technology" ColumnName="Technology" />
+          <ScalarProperty Name="yield" ColumnName="yield" />
+          <ScalarProperty Name="Dishes" ColumnName="Dishes" />
+          <ScalarProperty Name="difficulty" ColumnName="difficulty" />
+          <ScalarProperty Name="Setuptime" ColumnName="Setuptime" />
+          <ScalarProperty Name="CookingTime" ColumnName="CookingTime" />
+          <ScalarProperty Name="People" ColumnName="People" />
+          <ScalarProperty Name="MenuinformationImg" ColumnName="MenuinformationImg" />
+          <ScalarProperty Name="Ingredients" ColumnName="Ingredients" />
+          <ScalarProperty Name="directions" ColumnName="directions" />
+          <ScalarProperty Name="calorie" ColumnName="calorie" />
+          <ScalarProperty Name="carbohydrate" ColumnName="carbohydrate" />
+          <ScalarProperty Name="eggwhite" ColumnName="eggwhite" />
+          <ScalarProperty Name="cholesterol" ColumnName="cholesterol" />
+          <ScalarProperty Name="fat" ColumnName="fat" />
+          <ScalarProperty Name="commenttime" ColumnName="commenttime" />
+          <ScalarProperty Name="viewscount" ColumnName="viewscount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publish">
+      <EntityTypeMapping TypeName="ChowhoundNetModel.publish">
+        <MappingFragment StoreEntitySet="publish">
+          <ScalarProperty Name="publishID" ColumnName="publishID" />
+          <ScalarProperty Name="publishName" ColumnName="publishName" />
+          <ScalarProperty Name="publishImg" ColumnName="publishImg" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="commenttime" ColumnName="commenttime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="ChowhoundNetModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="userpic" ColumnName="userpic" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

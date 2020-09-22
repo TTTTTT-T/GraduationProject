@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChowhoundNetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="cID" />
+    </Key>
+    <Property Name="cID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CTechnology" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CDishes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cdifficulty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CSetuptime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CCookingTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CPeople" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CMenuinformationImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CIngredients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Csubsidiary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="publishID" Type="Int32" />
+    <Property Name="commenttime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="publish" Relationship="Self.FK__Comment__publish__1FCDBCEB" FromRole="Comment" ToRole="publish" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK__Comment__userID__1ED998B2" FromRole="Comment" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="CommentMenu">
+    <Key>
+      <PropertyRef Name="CommentMenuID" />
+    </Key>
+    <Property Name="CommentMenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="MenuinformationID" Type="Int32" />
+    <Property Name="commenttime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Menuinformation" Relationship="Self.FK__CommentMe__Menui__173876EA" FromRole="CommentMenu" ToRole="Menuinformation" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK__CommentMe__userI__164452B1" FromRole="CommentMenu" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="Menuinformation">
+    <Key>
+      <PropertyRef Name="MenuinformationID" />
+    </Key>
+    <Property Name="MenuinformationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuinformationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Technology" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="yield" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dishes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="difficulty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Setuptime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CookingTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="People" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MenuinformationImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ingredients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="directions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="calorie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="carbohydrate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="eggwhite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cholesterol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="commenttime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="viewscount" Type="Int32" />
+    <NavigationProperty Name="CommentMenu" Relationship="Self.FK__CommentMe__Menui__173876EA" FromRole="Menuinformation" ToRole="CommentMenu" />
+  </EntityType>
+  <EntityType Name="publish">
+    <Key>
+      <PropertyRef Name="publishID" />
+    </Key>
+    <Property Name="publishID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="publishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="publishImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="commenttime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comment" Relationship="Self.FK__Comment__publish__1FCDBCEB" FromRole="publish" ToRole="Comment" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK__publish__userID__1B0907CE" FromRole="publish" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="userpic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="Int32" />
+    <Property Name="pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sex" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Birthday" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="isDelete" Type="Int32" />
+    <NavigationProperty Name="Comment" Relationship="Self.FK__Comment__userID__1ED998B2" FromRole="UserInfo" ToRole="Comment" />
+    <NavigationProperty Name="CommentMenu" Relationship="Self.FK__CommentMe__userI__164452B1" FromRole="UserInfo" ToRole="CommentMenu" />
+    <NavigationProperty Name="publish" Relationship="Self.FK__publish__userID__1B0907CE" FromRole="UserInfo" ToRole="publish" />
+  </EntityType>
+  <Association Name="FK__Comment__publish__1FCDBCEB">
+    <End Role="publish" Type="Self.publish" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publish">
+        <PropertyRef Name="publishID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="publishID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__userID__1ED998B2">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CommentMe__Menui__173876EA">
+    <End Role="Menuinformation" Type="Self.Menuinformation" Multiplicity="0..1" />
+    <End Role="CommentMenu" Type="Self.CommentMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuinformation">
+        <PropertyRef Name="MenuinformationID" />
+      </Principal>
+      <Dependent Role="CommentMenu">
+        <PropertyRef Name="MenuinformationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CommentMe__userI__164452B1">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="CommentMenu" Type="Self.CommentMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="CommentMenu">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__publish__userID__1B0907CE">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="publish" Type="Self.publish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="publish">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChowhoundNetEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Comment" EntityType="Self.Comment" />
+    <EntitySet Name="CommentMenu" EntityType="Self.CommentMenu" />
+    <EntitySet Name="Menuinformation" EntityType="Self.Menuinformation" />
+    <EntitySet Name="publish" EntityType="Self.publish" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+    <AssociationSet Name="FK__Comment__publish__1FCDBCEB" Association="Self.FK__Comment__publish__1FCDBCEB">
+      <End Role="publish" EntitySet="publish" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__userID__1ED998B2" Association="Self.FK__Comment__userID__1ED998B2">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CommentMe__Menui__173876EA" Association="Self.FK__CommentMe__Menui__173876EA">
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+      <End Role="CommentMenu" EntitySet="CommentMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CommentMe__userI__164452B1" Association="Self.FK__CommentMe__userI__164452B1">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="CommentMenu" EntitySet="CommentMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__publish__userID__1B0907CE" Association="Self.FK__publish__userID__1B0907CE">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="publish" EntitySet="publish" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

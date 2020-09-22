@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChowhoundNetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BuImage">
+    <Key>
+      <PropertyRef Name="BuImageID" />
+    </Key>
+    <Property Name="BuImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="proceduress" Type="Int32" />
+    <Property Name="BuImageimge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="discriptss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MenuinformationID" Type="Int32" />
+    <Property Name="isDelete" Type="Int32" />
+    <NavigationProperty Name="Menuinformation" Relationship="Self.FK__BuImage__Menuinf__1BFD2C07" FromRole="BuImage" ToRole="Menuinformation" />
+  </EntityType>
+  <EntityType Name="CommentMenu">
+    <Key>
+      <PropertyRef Name="CommentMenuID" />
+    </Key>
+    <Property Name="CommentMenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="contentss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="MenuinformationID" Type="Int32" />
+    <Property Name="commenttime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="isDelete" Type="Int32" />
+    <NavigationProperty Name="Menuinformation" Relationship="Self.FK__CommentMe__Menui__20C1E124" FromRole="CommentMenu" ToRole="Menuinformation" />
+    <NavigationProperty Name="UserInfo" Relationship="ChowhoundNetModel.FK__CommentMe__userI__1FCDBCEB" FromRole="CommentMenu" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="Menuinformation">
+    <Key>
+      <PropertyRef Name="MenuinformationID" />
+    </Key>
+    <Property Name="MenuinformationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuinformationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="abstractss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Technology" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="yield" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MenuinformationImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dishes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="TypetID" Type="Int32" />
+    <Property Name="difficulty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Setuptime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CookingTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="People" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ingredients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="directions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="calorie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="carbohydrate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="eggwhite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cholesterol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="commenttime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="viewscount" Type="Int32" />
+    <Property Name="isDelete" Type="Int32" />
+    <NavigationProperty Name="BuImage" Relationship="Self.FK__BuImage__Menuinf__1BFD2C07" FromRole="Menuinformation" ToRole="BuImage" />
+    <NavigationProperty Name="CommentMenu" Relationship="Self.FK__CommentMe__Menui__20C1E124" FromRole="Menuinformation" ToRole="CommentMenu" />
+    <NavigationProperty Name="Typetypes" Relationship="Self.FK__Menuinfor__Typet__173876EA" FromRole="Menuinformation" ToRole="Typetypes" />
+    <NavigationProperty Name="UserInfo" Relationship="ChowhoundNetModel.FK__Menuinfor__userI__164452B1" FromRole="Menuinformation" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="Typetypes">
+    <Key>
+      <PropertyRef Name="TypetypesID" />
+    </Key>
+    <Property Name="TypetypesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypetypesName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isDelete" Type="Int32" />
+    <NavigationProperty Name="Menuinformation" Relationship="Self.FK__Menuinfor__Typet__173876EA" FromRole="Typetypes" ToRole="Menuinformation" />
+  </EntityType>
+  <Association Name="FK__BuImage__Menuinf__1BFD2C07">
+    <End Role="Menuinformation" Type="Self.Menuinformation" Multiplicity="0..1" />
+    <End Role="BuImage" Type="Self.BuImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuinformation">
+        <PropertyRef Name="MenuinformationID" />
+      </Principal>
+      <Dependent Role="BuImage">
+        <PropertyRef Name="MenuinformationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CommentMe__Menui__20C1E124">
+    <End Role="Menuinformation" Type="Self.Menuinformation" Multiplicity="0..1" />
+    <End Role="CommentMenu" Type="Self.CommentMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuinformation">
+        <PropertyRef Name="MenuinformationID" />
+      </Principal>
+      <Dependent Role="CommentMenu">
+        <PropertyRef Name="MenuinformationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Menuinfor__Typet__173876EA">
+    <End Role="Typetypes" Type="Self.Typetypes" Multiplicity="0..1" />
+    <End Role="Menuinformation" Type="Self.Menuinformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typetypes">
+        <PropertyRef Name="TypetypesID" />
+      </Principal>
+      <Dependent Role="Menuinformation">
+        <PropertyRef Name="TypetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChowhoundNetEntities11" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BuImage" EntityType="Self.BuImage" />
+    <EntitySet Name="CommentMenu" EntityType="Self.CommentMenu" />
+    <EntitySet Name="Menuinformation" EntityType="Self.Menuinformation" />
+    <EntitySet Name="Typetypes" EntityType="Self.Typetypes" />
+    <AssociationSet Name="FK__BuImage__Menuinf__1BFD2C07" Association="Self.FK__BuImage__Menuinf__1BFD2C07">
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+      <End Role="BuImage" EntitySet="BuImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CommentMe__Menui__20C1E124" Association="Self.FK__CommentMe__Menui__20C1E124">
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+      <End Role="CommentMenu" EntitySet="CommentMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Menuinfor__Typet__173876EA" Association="Self.FK__Menuinfor__Typet__173876EA">
+      <End Role="Typetypes" EntitySet="Typetypes" />
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+    </AssociationSet>
+    <EntitySet Name="UserInfo" EntityType="ChowhoundNetModel.UserInfo" />
+    <AssociationSet Name="FK__CommentMe__userI__1FCDBCEB" Association="ChowhoundNetModel.FK__CommentMe__userI__1FCDBCEB">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="CommentMenu" EntitySet="CommentMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Menuinfor__userI__164452B1" Association="ChowhoundNetModel.FK__Menuinfor__userI__164452B1">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="Menuinformation" EntitySet="Menuinformation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="userpic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="Int32" />
+    <Property Name="pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sex" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Birthday" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="isDelete" Type="Int32" />
+    <Property Name="discriptss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CommentMenu" Relationship="ChowhoundNetModel.FK__CommentMe__userI__1FCDBCEB" FromRole="UserInfo" ToRole="CommentMenu" />
+    <NavigationProperty Name="Menuinformation" Relationship="ChowhoundNetModel.FK__Menuinfor__userI__164452B1" FromRole="UserInfo" ToRole="Menuinformation" />
+  </EntityType>
+  <Association Name="FK__CommentMe__userI__1FCDBCEB">
+    <End Type="ChowhoundNetModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
+    <End Type="ChowhoundNetModel.CommentMenu" Role="CommentMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="CommentMenu">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Menuinfor__userI__164452B1">
+    <End Type="ChowhoundNetModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
+    <End Type="ChowhoundNetModel.Menuinformation" Role="Menuinformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Menuinformation">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

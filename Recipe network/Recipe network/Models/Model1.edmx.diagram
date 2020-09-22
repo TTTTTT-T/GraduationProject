@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5432d2e153bf4ba1bb4476ebf4438bac" Name="Diagram1">
+        <EntityTypeShape EntityType="ChowhoundNetModel.BuImage" Width="1.5" PointX="7.875" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChowhoundNetModel.CommentMenu" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChowhoundNetModel.Menuinformation" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChowhoundNetModel.Typetypes" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="ChowhoundNetModel.FK__BuImage__Menuinf__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="ChowhoundNetModel.FK__CommentMe__Menui__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="ChowhoundNetModel.FK__Menuinfor__Typet__173876EA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ChowhoundNetModel.UserInfo" Width="1.5" PointX="0.75" PointY="4.375" />
+        <AssociationConnector Association="ChowhoundNetModel.FK__CommentMe__userI__1FCDBCEB" />
+        <AssociationConnector Association="ChowhoundNetModel.FK__Menuinfor__userI__164452B1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

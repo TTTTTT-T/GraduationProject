@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+@using Recipe_network.Models
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/colors/green.css" rel="stylesheet" />
+</head>
+<body>
+    <header id="header">
+
+        <!-- Container -->
+        <div class="container">
+
+            <!-- Logo / Mobile Menu -->
+            <div class="three columns">
+                <div id="logo">
+                    <h1><a href="index.html"><img src="~/images/222222222222222.jpg" alt="Chow" style="height:50px;width:140px" /></a></h1>
+
+                </div>
+            </div>
+
+
+            <!-- Navigation
+            ================================================== -->
+            <div class="thirteen columns navigation">
+
+                <nav id="navigation" class="menu nav-collapse">
+                    <ul>
+                        <li><a href="/RecipeHome/Index" id="current">首页</a></li>
+
+                        @*<li>
+            <a href="#">Demos</a>
+            <ul>
+                <li><a href="index.html">Grid Homepage</a></li>
+                <li><a href="index-2.html">List Homepage</a></li>
+                <li><a href="index-3.html">Boxed Version</a></li>
+            </ul>
+        </li>*@
+
+                        @*<li>
+            <a href="#">Recipes</a>
+            <ul>
+                <li><a href="browse-recipes.html">Browse Recipes</a></li>
+                <li><a href="recipe-page-1.html">Recipe Page #1</a></li>
+                <li><a href="recipe-page-2.html">Recipe Page #2</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">Pages</a>
+            <ul>
+                <li><a href="shortcodes.html">Shortcodes</a></li>
+                <li><a href="typography.html">Typography</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">Shop</a>
+            <ul>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="product-page.html">Product Page</a></li>
+            </ul>
+        </li>*@
+                       
+                    <li style="margin-right:100px">
+                        @{
+                            UserInfo user = (UserInfo)Session["UID"];
+                        }
+
+
+                        @if (Session["UID"] != null)
+                        {
+                            if (@user.userpic == null)
+                            {  <a href="#">
+                             <img src="~/images/默认用户头像.png" style="height:30px" /> <lable style="font-size:15px;font-weight:bold">用户：@user.UName</lable>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="#">
+                                    <img src="~/images/@user.userpic" style="height:30px" />   <lable style="font-size:15px;font-weight:bold">用户：@user.UName</lable>
+                                </a>
+                            }
+
+                        }
+                        else
+                        {
+
+                            <a href="/Login/Index">
+                                <img src="~/images/默认用户头像.png" style="height:30px" />  <lable style="font-size:15px;font-weight:bold">未登录</lable>
+                            </a>
+                        }
+
+
+                    <ul>
+                        <li><a href="/UserInfo/userInfo">个人信息</a></li>
+                        <li><a href="/SubmitRecipe/Index">发布菜谱</a></li>
+                        <li><a href="typography.html">退出登录</a></li>
+
+                    </ul>
+                    </li>
+
+                    </ul>
+                    
+                </nav>
+
+            </div>
+
+        </div>
+        <!-- Container / End -->
+    </header>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 放肆恰菜谱网</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
