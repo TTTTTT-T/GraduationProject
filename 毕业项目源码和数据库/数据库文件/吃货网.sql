@@ -4,7 +4,9 @@ use ChowhoundNet
 create table UserInfo --用户信息
 (
    userID int primary key identity(1,1),
-   username varchar(20),--姓名/昵称
+   Account varchar(20),--姓名/昵称
+   UName nvarchar(20),
+   discriptss nvarchar(max),
    userpic nvarchar(max),--头像图片路径 
    phone int,--手机号
    pwd varchar(20),--密码
@@ -12,36 +14,57 @@ create table UserInfo --用户信息
    Birthday nvarchar(20),--生日
    isDelete int default(0)--是否删除,0为显示，1为隐藏
 )
-create table MenuType --菜谱类型
+create table Typetypes--菜谱类型表
 (
-   typeid int primary key identity(1,1),
-   typeName nvarchar(10) --类型名称
+   TypetypesID int primary key identity(1,1),
+   TypetypesName nvarchar(50),
+  isDelete int default(0)--是否删除,0为显示，1为隐藏
 )
 create table Menuinformation --发布菜谱信息
 (
 MenuinformationID int primary key identity(1,1),--菜谱ID
 MenuinformationName varchar(50),--菜谱名称
-TypeID int foreign key(TypeID) references MenuType(typeid),--电影类型id--
+abstractss nvarchar(MAX),--摘要
+TypeName varchar(50),--电影类型
 Technology varchar(50),--工艺
+yield varchar(50),--产量
+MenuinformationImg nvarchar(MAX),--图片路径
 Dishes varchar(50),--口味
-difficulty varchar(50),--难度
+userID int foreign key(userID) references userinfo(userID),--取用户姓名
+ TypetID int foreign key(TypetID) references Typetypes(TypetypesID), --去菜谱类型
+difficulty varchar(50),--水平
 Setuptime varchar(50),--准备时间
 CookingTime varchar(50),--烹饪时间
 People  varchar(50),--人数
-MenuinformationImg nvarchar(MAX),--图片路径
-Ingredients varchar(50),--主料
-subsidiary varchar(50),--辅料
+Ingredients varchar(50),--配料
+directions nvarchar(MAX),--方向
+calorie varchar(50),--卡路里
+carbohydrate varchar(50),--碳水化合物
+eggwhite varchar(50),--蛋白
+cholesterol varchar(50),--胆固醇
+fat varchar(50),--脂肪
 commenttime nvarchar(20)default(getdate()),   --发布时间
-viewscount int--浏览次数
+viewscount int,--浏览次数
+isDelete int default(0)--是否删除,0为显示，1为隐藏
 )
+create table BuImage(
+BuImageID int primary key identity(1,1),
+proceduress int,
+BuImageimge nvarchar(Max),
+discriptss nvarchar(Max),
+MenuinformationID int foreign key(MenuinformationID) references Menuinformation(MenuinformationID),  
+isDelete int default(0)--是否删除,0为显示，1为隐藏
+)
+
+
 create table CommentMenu
 (
 CommentMenuID int primary key identity(1,1),--评论ID
-content nvarchar(max),--评论内容
+contentss nvarchar(max),--评论内容
 userID int foreign key(userID) references userinfo(userID),--取用户姓名
 MenuinformationID int foreign key(MenuinformationID) references Menuinformation(MenuinformationID),   --取菜谱名称
 commenttime nvarchar(20)default(getdate()),   --评论时间
-
+isDelete int default(0)--是否删除,0为显示，1为隐藏
 
 )
 --发布找菜谱表

@@ -128,3 +128,5 @@ F:\唐彰\System\UI\obj\Debug\UI.pdb
 E:\ssetion\唐彰\System\UI\obj\Debug\UI.csprojResolveAssemblyReference.cache
 E:\ssetion\唐彰\System\UI\obj\Debug\UI.dll
 E:\ssetion\唐彰\System\UI\obj\Debug\UI.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\UI\obj\Debug\UI.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache

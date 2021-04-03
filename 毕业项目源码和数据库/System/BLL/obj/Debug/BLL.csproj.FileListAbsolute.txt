@@ -38,3 +38,14 @@ E:\ssetion\唐彰\System\BLL\bin\Debug\Model.pdb
 E:\ssetion\唐彰\System\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 E:\ssetion\唐彰\System\BLL\obj\Debug\BLL.dll
 E:\ssetion\唐彰\System\BLL\obj\Debug\BLL.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\bin\Debug\BLL.dll
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\bin\Debug\BLL.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\bin\Debug\DAL.dll
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\bin\Debug\Model.dll
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\bin\Debug\DAL.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\bin\Debug\Model.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\obj\Debug\BLL.dll
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\BLL\obj\Debug\BLL.pdb

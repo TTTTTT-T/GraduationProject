@@ -18,3 +18,9 @@ E:\ssetion\唐彰\System\Model\bin\Debug\Model.pdb
 E:\ssetion\唐彰\System\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\ssetion\唐彰\System\Model\obj\Debug\Model.dll
 E:\ssetion\唐彰\System\Model\obj\Debug\Model.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\Model\bin\Debug\Model.dll
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\Model\bin\Debug\Model.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\Model\obj\Debug\Model.dll
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\Model\obj\Debug\Model.pdb

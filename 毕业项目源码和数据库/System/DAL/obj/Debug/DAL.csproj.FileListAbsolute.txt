@@ -30,3 +30,12 @@ E:\ssetion\唐彰\System\DAL\bin\Debug\Model.pdb
 E:\ssetion\唐彰\System\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\ssetion\唐彰\System\DAL\obj\Debug\DAL.dll
 E:\ssetion\唐彰\System\DAL\obj\Debug\DAL.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\DAL\bin\Debug\DAL.dll
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\DAL\bin\Debug\DAL.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\DAL\bin\Debug\Model.dll
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\DAL\bin\Debug\Model.pdb
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\DAL\obj\Debug\DAL.dll
+C:\Users\Administrator\Desktop\放肆恰吃货网（毕业项目）\毕业项目源码和数据库\System\DAL\obj\Debug\DAL.pdb
